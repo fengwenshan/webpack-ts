@@ -1,0 +1,40 @@
+@import url(./app.css);
+html {
+    font-family: sans-serif;
+}
+body {
+    margin: 0;
+}
+#app {
+    display: flex;
+}
+
+
+
+.app-wrapper {
+    flex: 1;
+}
+
+#app {
+    display: flex;
+}
+#id {
+    display: flex;
+}
+
+#flex {
+    display: flex;
+}
+
+.flex {
+    display: flex;
+}
+
+.unused-class {
+    color: red;
+}
+
+#app {
+    user-select: none;
+    color: #12345678;
+}
