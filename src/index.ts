@@ -26,6 +26,9 @@ p1.then(res => {
   console.log(err)
 })
 
+/**
+ * @description 注释
+ */
 console.log(process.env.NODE_ENV, '123')
 console.log(dayjs().format('YYYY-MM-DD'))
 

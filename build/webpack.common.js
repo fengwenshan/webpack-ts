@@ -5,7 +5,10 @@ const webpack = require('webpack')
 const rootPath = process.cwd()
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: path.resolve(rootPath, 'src/index.ts'),
+  entry: {
+    index: path.resolve(rootPath, 'src/index.ts'),
+    hello: path.resolve(rootPath, 'src/hello.ts'),
+  },
   output: {
     // 入口文件输出的文件名
     filename: './assets/js/[name].[contenthash:8].js',
@@ -13,8 +16,6 @@ module.exports = {
     chunkFilename: './assets/js/[name].[contenthash:8].js',
     // 打包的文件夹
     path: path.resolve(rootPath, 'dist'),
-    // 静态资源目录
-    // publicPath: './',
     // 在生成文件之前清空 output 目录
     clean: true,
   },
@@ -33,15 +34,15 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           'sass-loader',
-          {
-            loader: 'px2rem-loader',
-            options: {
-              remUnit: 75, // 1rem = 75px
-              remPrecision: 8, // 精度：保留几位小数
-              // 忽略的样式文件
-              ignore: /node_modules/,
-            },
-          },
+          // {
+          //   loader: 'px2rem-loader',
+          //   options: {
+          //     remUnit: 75, // 1rem = 75px
+          //     remPrecision: 8, // 精度：保留几位小数
+          //     // 忽略的样式文件
+          //     ignore: /node_modules/,
+          //   },
+          // },
         ],
       },
       {

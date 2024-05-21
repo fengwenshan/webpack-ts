@@ -23,14 +23,11 @@ console.log(envConfigFile, 'envConfigFile')
 console.log(path.resolve(rootPath, 'public'), 'index.html')
 
 const devConfig = {
-  entry: path.resolve(rootPath, 'src/index.ts'),
   devtool: 'eval-source-map',
   devServer: {
     static: {
       // 指定静态资源目录
       directory: path.resolve(rootPath, 'public'),
-      // 指定静态资源路径, output的publicPath一致
-      // publicPath: './',
     },
     open: true,
     compress: true, // 启用 gzip
@@ -42,20 +39,20 @@ const devConfig = {
     client: {
       overlay: false, // 禁用编译错误时显示全屏覆盖层
     },
-    // proxy: [
-    //   {
-    //     context: ['/base-api'],
-    //     // 目标服务器
-    //     target: 'http://localhost:8080',
-    //     // 重写路径
-    //     pathRewrite: { '^/base-api': '' },
-    //     // 是否改变请求的源
-    //     //   true让目标服务器认为请求是从正确的源发起的
-    //     //   false 代理请求将会保留原始的主机头信息发送给目标服务器
-    //     changeOrigin: true,
-    //     secure: false, // 关闭SSL验证
-    //   },
-    // ],
+    proxy: [
+      {
+        context: ['/base-api'],
+        // 目标服务器
+        target: 'http://localhost:8080',
+        // 重写路径
+        pathRewrite: { '^/base-api': '' },
+        // 是否改变请求的源
+        //   true让目标服务器认为请求是从正确的源发起的
+        //   false 代理请求将会保留原始的主机头信息发送给目标服务器
+        changeOrigin: true,
+        secure: false, // 关闭SSL验证
+      },
+    ],
   },
   module: {
     rules: [

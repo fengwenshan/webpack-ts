@@ -25,8 +25,9 @@ const prodConfig = {
     // minimize: false,
     minimizer: [
       // // 使用多个TerserPlugin实例，覆盖默认压缩工具
-      // new TerserWebpackPlugin(),
-
+      new TerserWebpackPlugin({
+        extractComments: false, // 去掉注释文件单独生成在一个文件
+      }),
       // 压缩、优化css
       new CssMinimizerWebpackPlugin(),
     ],

@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "dayjs": "^1.11.11",
+    "lodash-es": "^4.17.21",
     "px2rem-loader": "^0.1.9"
   }
 }
